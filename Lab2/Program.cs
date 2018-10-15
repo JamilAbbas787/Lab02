@@ -32,10 +32,17 @@ namespace Lab2
             Console.Write("Continue? (y/n): ");
             string doesUserWantToContinue = Console.ReadLine();
 
+            // James - When comparing strings, I highly recommend you use the string "Equals" method built
+            // into strings.  so you could do doesUserWantToContinue.Equals("y", StringComparison.OrdinalIgnoreCase)
+            // instead, this will also take care of your casing issue.
             if (doesUserWantToContinue == "y")
             {
                 while (doesUserWantToContinue == "y")
                 {
+                    // James - DRY, Don't repeat yourself ;) we will cover that as we progress
+                    // in the course, but essentially you are doing the same work twice.
+                    // what you could do is put the top part, starting on line 14 in a 
+                    // while loop instead of this part, then you will get the same effect.
                     Console.Write("Enter Length: ");
                     string userLengthInputRoundTwo = Console.ReadLine();
                     decimal userLengthInputConvertedRoundTwo = decimal.Parse(userLengthInputRoundTwo);
@@ -50,6 +57,7 @@ namespace Lab2
                     Console.WriteLine("Area =  " + areaOfRoomRoundTwo);
                     Console.WriteLine("Perimeter = " + perimeterOfRoomRoundTwo);
 
+                    // James - if the user enters a capital Y then it will also break out of the code
                     Console.Write("Continue? (y/n): ");
                     string doesUserWantToEnterAnotherRoom = Console.ReadLine();
                     if (doesUserWantToEnterAnotherRoom == "y")
@@ -75,6 +83,7 @@ namespace Lab2
             }
             else
             {
+                // I like that you are handling invalid entries! cool deal!
                 Console.WriteLine("Invalied Entry!!!");
             }
 
