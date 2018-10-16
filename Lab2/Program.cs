@@ -15,11 +15,11 @@ namespace Lab2
 
             Console.Write("Enter Length: ");
             string userLengthInput = Console.ReadLine();
-            decimal userLengthInputConverted = decimal.Parse(userLengthInput);
+            decimal.TryParse(userLengthInput, out decimal userLengthInputConverted);
 
             Console.Write("Enter Width: ");
             string userWidthInput = Console.ReadLine();
-            decimal userWidthInputConverted = decimal.Parse(userWidthInput);
+            decimal.TryParse(userWidthInput,out decimal userWidthInputConverted);
 
             decimal areaOfRoom = userLengthInputConverted * userWidthInputConverted;
             decimal perimeterOfRoom = (userLengthInputConverted * 2) + (userWidthInputConverted * 2);
@@ -28,48 +28,33 @@ namespace Lab2
             Console.WriteLine("Perimeter = " + perimeterOfRoom);
 
 
-
             Console.Write("Continue? (y/n): ");
             string doesUserWantToContinue = Console.ReadLine();
 
-            if (doesUserWantToContinue == "y")
+            if (doesUserWantToContinue.Equals("y", StringComparison.OrdinalIgnoreCase))
             {
-                while (doesUserWantToContinue == "y")
+                while (doesUserWantToContinue.Equals("y", StringComparison.OrdinalIgnoreCase))
                 {
                     Console.Write("Enter Length: ");
-                    string userLengthInputRoundTwo = Console.ReadLine();
-                    decimal userLengthInputConvertedRoundTwo = decimal.Parse(userLengthInputRoundTwo);
+                    userLengthInput = Console.ReadLine();
+                    decimal.TryParse(userLengthInput, out userLengthInputConverted);
 
                     Console.Write("Enter Width: ");
-                    string userWidthInputRoundTwo = Console.ReadLine();
-                    decimal userWidthInputConvertedRoundTwo = decimal.Parse(userWidthInputRoundTwo);
+                    userWidthInput = Console.ReadLine();
+                    decimal.TryParse(userWidthInput, out userWidthInputConverted);
 
-                    decimal areaOfRoomRoundTwo = userLengthInputConvertedRoundTwo * userWidthInputConvertedRoundTwo;
-                    decimal perimeterOfRoomRoundTwo = (userLengthInputConvertedRoundTwo * 2) + (userWidthInputConvertedRoundTwo * 2);
+                    areaOfRoom = userLengthInputConverted * userWidthInputConverted;
+                    perimeterOfRoom = (userLengthInputConverted * 2) + (userWidthInputConverted * 2);
 
-                    Console.WriteLine("Area =  " + areaOfRoomRoundTwo);
-                    Console.WriteLine("Perimeter = " + perimeterOfRoomRoundTwo);
+                    Console.WriteLine("Area =  " + areaOfRoom);
+                    Console.WriteLine("Perimeter = " + perimeterOfRoom);
 
                     Console.Write("Continue? (y/n): ");
-                    string doesUserWantToEnterAnotherRoom = Console.ReadLine();
-                    if (doesUserWantToEnterAnotherRoom == "y")
-                    {
-                        continue;
-                    }
-                    else if (doesUserWantToEnterAnotherRoom == "n")
-                    {
-                        break;
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid Entry!!!");
-                        break;
-                    }
-
-
+                    doesUserWantToContinue = Console.ReadLine();
+                    continue;             
                 }
             }
-            else if (doesUserWantToContinue == "n")
+            else if (doesUserWantToContinue.Equals("n", StringComparison.OrdinalIgnoreCase))
             {
                 Console.WriteLine("Good Bye!");
             }
