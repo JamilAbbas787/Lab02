@@ -51,17 +51,17 @@ namespace Lab2
 
                     Console.Write("Continue? (y/n): ");
                     doesUserWantToContinue = Console.ReadLine();
-                    continue;             
+                    continue;
                 }
-            }
-            else if (doesUserWantToContinue.Equals("n", StringComparison.OrdinalIgnoreCase))
-            {
-                Console.WriteLine("Good Bye!");
-            }
-            else
-            {
-                Console.WriteLine("Invalied Entry!!!");
-            }
+                if (doesUserWantToContinue.Equals("n", StringComparison.OrdinalIgnoreCase))
+                {
+                    Console.WriteLine("Good Bye!");
+                }
+                else
+                {
+                    Console.WriteLine("Invalied Entry!!!");
+                }
+             }
 
             Console.ReadKey();
 
